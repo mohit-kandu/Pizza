@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const navBar = (props) => {
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <NavLink className="navbar-brand mainOne" to="/" exact>Pizza Builder</NavLink>
+      <NavLink className="navbar-brand mainOne" to="/" exact>Pizza Fast</NavLink>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { ingredientsInfoStatic, pizzaCrustImage } from './../Special/IngredientsInfo.js';
 
-//Import needed components
 import IngredientBlock from './IngredientBlock/IngredientBlock.js';
 import ShowScreen from './ShowScreen/ShowScreen.js';
 import OrderSummary from './../Ordering/OrderSummary.js';
@@ -26,7 +25,6 @@ class PizzaBuilder extends Component {
     this.props.onLoadInitialComposition(this.generateEmptyPizza());
   };
 
-  //Generates an empty pizza
   generateEmptyPizza = () => {
     let tempPizzaObject = {};
 
@@ -39,7 +37,6 @@ class PizzaBuilder extends Component {
   };
 
 
-  //Calculate total price
   calculateTotalPrice = () => {
     let total = this.state.basePrice;
     let keysIngredients = Object.keys(this.props.pizzaComposition);
@@ -53,12 +50,10 @@ class PizzaBuilder extends Component {
 
   clickHandler = (type, value) => {
     if (value) {
-      //Increment always
       this.props.onIncrementIngredient(type);
       this.props.pizzaSavedHandler(false);
     }
     else {
-      //Decrement only if above 0
       if (this.props.pizzaComposition[type] > 0) {
         this.props.onDecrementIngredient(type);
         this.props.pizzaSavedHandler(false);
@@ -68,7 +63,6 @@ class PizzaBuilder extends Component {
     this.checkoutPageToggler(false);
   };
 
-  //Enable or disable button based on a condition
   enableCheckoutButton = () => {
     return this.calculateTotalPrice() !== parseFloat(Math.round(this.state.basePrice * 100) / 100).toFixed(2);
   };
@@ -89,7 +83,6 @@ class PizzaBuilder extends Component {
 
   render() {
 
-    //Check if order window is allowed
     let orderWindow = null;
 
     if (this.enableCheckoutButton() && this.state.checkoutPageActivated) {
@@ -108,8 +101,8 @@ class PizzaBuilder extends Component {
         <div className="container">
           {orderWindow}
           <div className="py-5 text-center">
-            <h2>Pizza Builder</h2>
-            <p className="lead">Here you can build your pizza using the builder with the ingredients provided.</p>
+            <h2>Pizza Fast</h2>
+            <p className="lead">Create your custom pizza with just a few clicks.</p>
           </div>
 
           <div className="row">
@@ -136,7 +129,6 @@ class PizzaBuilder extends Component {
 
 }
 
-// map the state (Redux) to this component's props
 const mapStateToLocalProps = state => {
   return {
     pizzaComposition: state.pizzaReducer,
@@ -144,7 +136,6 @@ const mapStateToLocalProps = state => {
   };
 };
 
-//dispatch actions to props
 const mapDispatchActionsToProps = dispatch => {
   return {
     onLoadInitialComposition: (initialComposition) => dispatch({ type: actions.COMPOSITION_INITIALIZE, payload: initialComposition }),
@@ -155,5 +146,4 @@ const mapDispatchActionsToProps = dispatch => {
 };
 
 
-//We still need to export it
 export default connect(mapStateToLocalProps, mapDispatchActionsToProps)(PizzaBuilder);
