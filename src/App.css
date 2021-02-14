@@ -1,0 +1,137 @@
+input[type="text"].quantitySelector
+{
+  max-width:50px;
+}
+
+div.descriptionContainer
+{
+  -webkit-display:flex;
+  display:flex;
+  -webkit-justify-content:center;
+  justify-content: center;
+  -webkit-flex-direction:column;
+  flex-direction: column;
+  text-align:left;
+}
+
+div.ingredientSpace
+{
+  -webkit-display:flex;
+  display:flex;
+  -webkit-flex-wrap:wrap;
+  flex-wrap:wrap;
+  user-select:none;
+  -webkit-justify-content:flex-start;
+  justify-content: flex-start;
+}
+
+div.ingredientContainer
+{
+  height:175px;
+  width:175px;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+  margin:1em;
+}
+
+@media ONLY screen AND (max-width:991px)
+{
+  li.choseOption
+  {
+    -webkit-display:flex;
+    display:flex;
+    -webkit-flex-direction:column;
+    flex-direction: column;
+  }
+}
+
+@media ONLY screen AND (max-width:767px)
+{
+  li.choseOption
+  {
+    flex-direction: row;
+  }
+}
+
+div.wholeblackout
+{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-display:flex;
+  display:flex;
+  -webkit-justify-content:center;
+  justify-content: center;
+  -webkit-align-items:center;
+  align-items:center;
+}
+
+div.wholeblackout > div.whiteRectangle
+{
+  background:white;
+  max-width:500px;
+  margin:2em;
+  padding:2em;
+  position:relative;
+}
+
+div.checkoutButtons
+{
+  -webkit-display:flex;
+  display:flex;
+  -webkit-justify-content:flex-start;
+  justify-content: flex-start;
+  -webkit-align-items:center;
+  align-items:center;
+}
+
+div.checkoutButtons > button
+{
+  margin:3em 0 0 0.5em;
+}
+
+/* Ingredients page  */
+
+div.appSpacer
+{
+  margin-bottom:4em;
+}
+
+div.ingredientList
+{
+  display:flex;
+  justify-content: center;
+  flex-wrap:wrap;
+}
+
+div.ingredientList > div.ingredientLink
+{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div.ingredientList > div.ingredientLink > div.card
+{
+  top:0em;
+}
+
+div.ingredientList > div.ingredientLink > div.card:hover
+{
+  position:relative;
+  top:-1em;
+  transition:all 0.5s ease 0s;
+  cursor:pointer;
+}
+
+div.ingredientList > div.ingredientLink > h4
+{
+  font-size:1.25em;
+  font-weight:normal;
+  margin:0;
+}
