@@ -31,6 +31,7 @@ class PizzaBuilder extends Component {
     let keysArray = Object.keys(this.state.ingredientsInfo);
     for (let i = 0; i < keysArray.length; i++) {
       tempPizzaObject[keysArray[i]] = 0;
+      console.log(tempPizzaObject)
     }
 
     return tempPizzaObject;
